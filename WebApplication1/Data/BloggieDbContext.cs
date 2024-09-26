@@ -8,7 +8,7 @@ namespace WebApplication1.Data
         public BloggieDbContext(DbContextOptions options) : base(options)
         {
         }
-        public DbSet<BlogPost> Posts { get; set; }
+        public DbSet<BlogPost> BlogPosts { get; set; }
         public DbSet<Tag> Tags { get; set; }
     }
 }

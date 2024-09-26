@@ -1,6 +1,6 @@
 ﻿@model WebApplication1.Models.ViewModals.AddTagRequest
 <h4>Теги</h4>
-<dir>
+<div>
 	@if (ViewBag.Tag != null)
 	{
 		foreach(var tag in ViewBag.Tag)
@@ -11,17 +11,90 @@
 			}
 		}
 	}
-</dir>
-<dir>
-	<dir>
+</div>
+<div>
+	<div>
 		<h5>
 		</h5>
 			<form method = "post">
-				<dir>
-					<label class = "form-label">Заголовок</label>
-					<input type="text" class = "form-control"
-				</dir>
-			</form>
-				
-	</dir>
-</dir>
+			<div>
+				<label class = "form-label">Заголовок</label>
+				<input type="text" class = "form-control" id="blogPostHeading" name="Heading" />
+			</div>
+			<div>
+				<label class="form-label">Название страницы</label>
+				<input type="text" class="form-control" id="blogPostTitle" name="PageTitle" />
+			</div>
+			<div>
+				<label class="form-label">Краткое описание</label>
+				<input type="text" class="form-control" id="blogPostShortDescription" name="ShortDescription" />
+			</div>
+			<div>
+				<label class="form-label">Краткое описание</label>
+				<input type="text" class="form-control" id="blogPostShortDescription" name="ShortDescription" />
+			</div>
+			<div>
+				<label class="form-label">URL изображение</label>
+				<input type="text" class="form-control" id="blogPostFeaturedImageUrl" name="FeaturedImageUrl" />
+			</div>
+			<div>
+				<label class="form-label">Контент</label>
+				<input type="text" class="form-control" id="blogPostContent" name="Content" />
+			</div>
+			<div>
+				<label class="form-label">URL Handle</label>
+				<input type="text" class="form-control" id="blogPostUrlHandle" name="UrlHandle" />
+			</div>
+			<div>
+				<label class="form-label">Дата публикации</label>
+				<input type="date" class="form-control" id="blogPostPublishedDate" name="PublishedDate" />
+			</div>
+			<div>
+				<label class="form-label">Автор</label>
+				<input type="text" class="form-control" id="blogPostAuthor" name="Author" />
+			</div>
+			<div>
+				<label class="form-label">Номер тега</label>
+				<input type="text" class="form-control" id="blogPostTagId" name="TagId" />
+			</div>
+			<div>
+				<button type="submit" class="btn btn-dark">Сохранить</button>
+				<button type="button" class="btn btnDl" id="resetBtn">Сбросить</button>
+			</div>
+			</form>		
+	</div>
+</div>
+<table id="dataTable" style="width:100%">
+	<thead>
+		<th>Заголовок</th>
+		<th>Название страницы</th>
+		<th>Краткое описание</th>
+		<th>Url изображение</th>
+		<th>Контент</th>
+		<th>Url handle</th>
+		<th>Дата публикации</th>
+		<th>Автор</th>
+		<th>Tag</th>
+	</thead>
+	<tbody>
+		@foreach (var blogPost in ViewBag.BlogPost)
+		{
+			<tr data-rowid="@blogPost.Id">
+				<td>@blogPost.Heading</td>
+				<td>@blogPost.PageTitle</td>
+				<td>@blogPost.ShortDescription</td>
+				<td>@blogPost.FeaturedImageUrl</td>
+				<td>@blogPost.Content</td>
+				<td>@blogPost.UrlHandle</td>
+				<td>@blogPost.PublishedDate</td>
+				<td>@blogPost.Author</td>
+				<td>@blogPost.TagId</td>
+			</tr>
+			<td>
+				<a class="btnDl btn" href="/Delete?id=@blogPost.id">Удалить</a>
+				<a class="btnemail btn" href="/Edit?id=@blogPost.id">Изменить</a>
+				<a class="btnDl btn" href="/Details?id=@blogPost.id">Детали</a>
+			</td>
+		}
+	</tbody>
+</table>

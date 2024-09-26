@@ -9,10 +9,10 @@
         public string ShortDescription { get; set; }
         public string FeaturedImageUrl { get; set; }
         public string UrlHandle { get; set; }
-        public string Athor { get; set; }
+        public string Author { get; set; }
         public DateTime PublishedDate { get; set; }
         public bool Visiable { get; set; }
-        
-        public ICollection<Tag> tags { get; set; }
+        public int TagId{ get; set; }      
+        public Tag? Tag { get; set; }
     }
 }

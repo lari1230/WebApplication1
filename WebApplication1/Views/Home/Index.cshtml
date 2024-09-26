@@ -1,8 +1,27 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+﻿@model WebApplication1.Models.ViewModals.AddTagRequest
+<h4>Теги</h4>
+<dir>
+	@if (ViewBag.Tag != null)
+	{
+		foreach(var tag in ViewBag.Tag)
+		{
+			if (tag != null)
+			{
+				<button class="btn tag-button" data-tag-id = @tag.Name>@tag.Name</button>
+			}
+		}
+	}
+</dir>
+<dir>
+	<dir>
+		<h5>
+		</h5>
+			<form method = "post">
+				<dir>
+					<label class = "form-label">Заголовок</label>
+					<input type="text" class = "form-control"
+				</dir>
+			</form>
+				
+	</dir>
+</dir>
